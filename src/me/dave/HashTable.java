@@ -33,18 +33,26 @@ public class HashTable {
     private LinkedList<Node>[] table;
 
     public HashTable(int tableSize) {
+
         table = new LinkedList[tableSize];
+        for(int i=0; i < tableSize; i++) {
+            table[i] = new LinkedList<Node>();
+        }
     }
+
     private int getHashCode(String data) {
+
         int hashCode = 0;
         for(char c : data.toCharArray()) {
             hashCode += c;
         }
         return hashCode;
     }
+
     private int getIndex(int hashCode) {
         return hashCode%table.length;
     }
+
     private Node getNode(LinkedList<Node> list, String key) {
         if(list == null) {
             return null;
@@ -54,6 +62,7 @@ public class HashTable {
         }
         return null;
     }
+
     public String get(String key) {
         int hashCode = getHashCode(key);
         int index = getIndex(hashCode);
@@ -63,9 +72,7 @@ public class HashTable {
     public void put(String key, String value) {
         int hashCode = getHashCode(key);
         int index = getIndex(hashCode);
-        if(table[index] == null) {
-            table[index] = new LinkedList<Node>();
-        }
+
         Node node = getNode(table[index], key);
         if(node == null) {
             Node newNode = new Node(key, value);

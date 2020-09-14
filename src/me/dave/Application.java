@@ -6,8 +6,8 @@ public class Application {
         ht.put("dave", "nice guy");
         ht.put("cloe", "beautiful");
 
-        System.out.println(ht.get("dave"));
-        System.out.println(ht.get("cloe"));
-        System.out.println(ht.get("noel"));
+        System.out.println("dave: " + ht.get("dave"));
+        System.out.println("cloe: " + ht.get("cloe"));
+        System.out.println("noel: " + ht.get("noel"));
     }
 }
